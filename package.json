@@ -22,7 +22,7 @@
     "dynamic",
     "import",
     "require",
-    "commonjs"
+    "commonjs",
     "esm"
   ],
   "scripts": {
@@ -39,7 +39,9 @@
     "watch:coverage:tape": "madrun watch:coverage:tape",
     "watch:coverage": "madrun watch:coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "readjson": "^2.2.0"
+  },
   "license": "MIT",
   "devDependencies": {
     "c8": "^7.3.5",
