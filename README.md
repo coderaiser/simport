@@ -19,8 +19,18 @@ With simport you can:
 
 ### simport(name)
 
+Commonjs:
+
 ```js
-import simpor from 'simport';
+const {createSimport} = require('simport');
+const simport = createSimport(__filename);
+```
+
+ESM:
+
+```js
+import {createSimport} from 'simport';
+const simport = createSimport(import.meta.url);
 
 // you can import json
 await simport('./package.json');

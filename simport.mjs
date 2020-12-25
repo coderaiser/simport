@@ -2,9 +2,11 @@ import {createRequire} from 'module';
 import {fileURLToPath} from 'url';
 import {dirname} from 'path';
 
-import simport from './simport.js';
+import {createSimport} from './simport.js';
 
-export default simport;
+export {
+    createSimport,
+};
 
 export const createCommons = (url) => {
     const require = createRequire(url);

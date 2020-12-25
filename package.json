@@ -57,7 +57,7 @@
     "try-to-catch": "^3.0.0"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=12.2"
   },
   "publishConfig": {
     "access": "public"

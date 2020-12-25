@@ -1,10 +1,14 @@
 import {fileURLToPath} from 'url';
 import {dirname} from 'path';
 
-import simport from './simport.js';
+import {createSimport} from './simport.js';
+import {createCommons} from './simport.mjs';
+
 import test from 'supertape';
 
 const {url} = import.meta;
+
+const simport = createSimport(url);
 
 test('simport: default', async (t) => {
     const data = await import('supertape');
@@ -32,7 +36,7 @@ test('simport: json', async (t) => {
 test('simport: no extension', async (t) => {
     const imported = await simport('./simport');
     
-    t.equal(imported, simport);
+    t.ok(imported, createSimport);
     t.end();
 });
 
@@ -58,6 +62,16 @@ test('simport: createCommons: require', async (t) => {
     const {name} = require('./package');
     
     t.equal(name, 'simport');
+    t.end();
+});
+
+test('simport: file name', async (t) => {
+    const {__filename} = createCommons(url);
+    const simport = createSimport(__filename);
+    
+    const result = await simport('./simport.mjs');
+    
+    t.equal(result.createSimport, createSimport);
     t.end();
 });
 
