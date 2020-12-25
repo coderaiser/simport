@@ -8,10 +8,10 @@
   "exports": {
     ".": {
       "node": {
-        "require": "./lib/simport.js",
-        "import": "./lib/simport.mjs"
+        "require": "./simport.js",
+        "import": "./simport.mjs"
       },
-      "default": "./lib/simiport.js"
+      "default": "./simiport.js"
     }
   },
   "repository": {
