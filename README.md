@@ -57,7 +57,7 @@ const {
 
 MIT
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/thread-it.svg?style=flat
+[NPMIMGURL]:                https://img.shields.io/npm/v/simport.svg?style=flat
 [BuildStatusIMGURL]:        https://travis-ci.com/coderaiser/simport.svg?branch=master
 [DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/simport.svg?style=flat
 [LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
