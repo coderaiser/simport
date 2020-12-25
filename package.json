@@ -1,0 +1,63 @@
+{
+  "name": "simport",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "import like require but async",
+  "homepage": "http://github.com/coderaiser/simport",
+  "main": "super-import.js",
+  "exports": {
+    ".": {
+      "node": {
+        "require": "./lib/simport.js",
+        "import": "./lib/simport.mjs"
+      },
+      "default": "./lib/simiport.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/simport.git"
+  },
+  "keywords": [
+    "dynamic",
+    "import",
+    "require",
+    "commonjs"
+    "esm"
+  ],
+  "scripts": {
+    "test": "madrun test",
+    "coverage": "madrun coverage",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "report": "madrun report",
+    "watcher": "madrun watcher",
+    "watch:test": "madrun watch:test",
+    "watch:lint": "madrun watch:lint",
+    "watch:tape": "madrun watch:tape",
+    "watch:coverage:base": "madrun watch:coverage:base",
+    "watch:coverage:tape": "madrun watch:coverage:tape",
+    "watch:coverage": "madrun watch:coverage"
+  },
+  "dependencies": {},
+  "license": "MIT",
+  "devDependencies": {
+    "c8": "^7.3.5",
+    "coveralls": "^3.0.2",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^6.11.0",
+    "madrun": "^8.2.0",
+    "mock-require": "^3.0.3",
+    "nodemon": "^2.0.2",
+    "putout": "^12.9.2",
+    "supertape": "^4.1.0",
+    "try-to-catch": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

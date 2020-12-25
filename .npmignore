@@ -1,0 +1,7 @@
+.*
+*.swp
+*.spec.mjs
+
+yarn-error.log
+coverage
+
