@@ -17,7 +17,7 @@ With simport you can:
 
 ## API
 
-### simport(name)
+### createSimport
 
 Commonjs:
 
@@ -48,7 +48,7 @@ const validate = await simport('./validate');
 const {default: validate2} = await import('./validate.js');
 ```
 
-### createCommons(import.meta.url)
+### createCommons
 
 ```js
 import {createCommons} from 'simport';
