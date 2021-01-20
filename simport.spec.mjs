@@ -1,6 +1,8 @@
 import {fileURLToPath} from 'url';
 import {dirname} from 'path';
 
+import tryToCatch from 'try-to-catch';
+
 import {createSimport} from './simport.js';
 import {createCommons} from './simport.mjs';
 
@@ -72,6 +74,16 @@ test('simport: file name', async (t) => {
     const result = await simport('./simport.mjs');
     
     t.equal(result.createSimport, createSimport);
+    t.end();
+});
+
+test('simport: not found', async (t) => {
+    const {__filename} = createCommons(url);
+    const simport = createSimport(__filename);
+    
+    const [error] = await tryToCatch(simport, './simport1');
+    
+    t.ok(error, error.message);
     t.end();
 });
 

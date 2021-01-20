@@ -40,7 +40,8 @@
     "watch:coverage": "madrun watch:coverage"
   },
   "dependencies": {
-    "readjson": "^2.2.0"
+    "readjson": "^2.2.0",
+    "try-to-catch": "^3.0.0"
   },
   "license": "MIT",
   "devDependencies": {
@@ -50,11 +51,9 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^6.11.0",
     "madrun": "^8.2.0",
-    "mock-require": "^3.0.3",
     "nodemon": "^2.0.2",
     "putout": "^12.9.2",
-    "supertape": "^4.1.0",
-    "try-to-catch": "^3.0.0"
+    "supertape": "^4.1.0"
   },
   "engines": {
     "node": ">=12.2"
