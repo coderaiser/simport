@@ -1,3 +1,9 @@
+2021.01.20, v1.0.6
+
+fix:
+- (simport) ability to handle windows paths (coderaiser/cloudcmd#317)
+
+
 2021.01.12, v1.0.5
 
 fix:
