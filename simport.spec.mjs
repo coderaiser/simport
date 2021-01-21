@@ -1,3 +1,4 @@
+import {join} from 'path';
 import {fileURLToPath} from 'url';
 import {dirname} from 'path';
 
@@ -30,6 +31,14 @@ test('simport: named', async (t) => {
 
 test('simport: json', async (t) => {
     const json = await simport('./package.json');
+    
+    t.equal(json.name, 'simport');
+    t.end();
+});
+
+test('simport: json: not relative', async (t) => {
+    const {__dirname} = createCommons(url);
+    const json = await simport(join(__dirname, 'package.json'));
     
     t.equal(json.name, 'simport');
     t.end();

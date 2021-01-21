@@ -21,15 +21,15 @@ module.exports.createSimport = (url) => {
             resolved = new URL(name, url);
         }
         
+        if (/\.json$/.test(resolved) || /\.json/.test(resolved))
+            return await readjson(resolved);
+        
         if (!isRelative || /\.(js|mjs|cjs)$/.test(name)) {
             const imported = await import(resolved);
             const {default: def = {}} = imported;
             
             return assign(def, imported);
         }
-        
-        if (/\.json$/.test(resolved) || /\.json/.test(resolved))
-            return await readjson(resolved);
         
         let [error, imported] = await tryToCatch(tryJS, resolved);
         imported = imported || await tryToCatch(tryMJS, resolved)[0];
