@@ -1,6 +1,6 @@
 {
   "name": "simport",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "import like require but async",
   "homepage": "http://github.com/coderaiser/simport",

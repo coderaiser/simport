@@ -1,3 +1,12 @@
+2021.01.21, v1.0.7
+
+fix:
+- (simport) json support
+
+feature:
+- (package) putout v13.8.0
+
+
 2021.01.20, v1.0.6
 
 fix:
