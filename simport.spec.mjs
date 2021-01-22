@@ -96,3 +96,13 @@ test('simport: not found', async (t) => {
     t.end();
 });
 
+test('simport: absolute', async (t) => {
+    const {__filename} = createCommons(url);
+    const simport = createSimport(__filename);
+    
+    const [error] = await tryToCatch(simport, __filename);
+    
+    t.notOk(error);
+    t.end();
+});
+

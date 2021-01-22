@@ -6,6 +6,7 @@ const tryToCatch = require('try-to-catch');
 
 const {assign} = Object;
 
+const tryNoExt = async (a) => await import(a);
 const tryJS = async (a) => await import(`${a}.js`);
 const tryMJS = async (a) => await import(`${a}.mjs`);
 const tryCJS = async (a) => await import(`${a}.cjs`);
@@ -21,19 +22,28 @@ module.exports.createSimport = (url) => {
             resolved = new URL(name, url);
         }
         
-        if (/\.json$/.test(resolved) || /\.json/.test(resolved))
+        if (/\.json$/.test(resolved))
             return await readjson(resolved);
         
-        if (!isRelative || /\.(js|mjs|cjs)$/.test(name)) {
-            const imported = await import(resolved);
+        if (/\.(js|mjs|cjs)$/.test(name)) {
+            const processed = resolved.href || `file://${resolved}`;
+            const imported = await import(processed);
             const {default: def = {}} = imported;
             
             return assign(def, imported);
         }
         
-        let [error, imported] = await tryToCatch(tryJS, resolved);
-        imported = imported || await tryToCatch(tryMJS, resolved)[0];
-        imported = imported || await tryToCatch(tryCJS, resolved)[0];
+        let imported;
+        let error;
+        
+        if (/^[a-z]/.test(name))
+            imported = await tryNoExt(resolved);
+        
+        if (!imported) {
+            [error, imported] = await tryToCatch(tryJS, resolved);
+            imported = imported || await tryToCatch(tryMJS, resolved)[0];
+            imported = imported || await tryToCatch(tryCJS, resolved)[0];
+        }
         
         if (!imported)
             throw error;
