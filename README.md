@@ -72,7 +72,7 @@ MIT
 [BuildStatusIMGURL]:        https://travis-ci.com/coderaiser/simport.svg?branch=master
 [DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/simport.svg?style=flat
 [LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[NPMURL]:                   https://npmjs.org/package/thread-it "npm"
+[NPMURL]:                   https://npmjs.org/package/simport "npm"
 [BuildStatusURL]:           https://travis-ci.com/coderaiser/simport  "Build Status"
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/simport "Dependency Status"
 [LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
