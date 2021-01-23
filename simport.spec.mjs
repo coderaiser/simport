@@ -17,7 +17,8 @@ test('simport: default', async (t) => {
     const data = await import('supertape');
     const superData = await simport('supertape');
     
-    t.equal(data.default, superData);
+    t.notEqual(data.default, superData);
+    t.equal(data.default, superData.default);
     t.end();
 });
 
@@ -116,3 +117,51 @@ test('simport: external', async (t) => {
     t.end();
 });
 
+test('simport: `default` export: frozen object', async (t) => {
+    const {__filename} = createCommons(url);
+    const simport = createSimport(__filename);
+
+    const native = await import('./test/fixtures/default-frozen-object.js');
+    const result = await simport('./test/fixtures/default-frozen-object.js');
+    t.equal(typeof result, "object");
+
+    t.notEqual(result, native.default);
+    t.equal(result.default, native.default);
+    t.equal(result.foo, native.foo);
+
+    t.end();
+});
+
+test('simport: `default` export: frozen function', async (t) => {
+    const {__filename} = createCommons(url);
+    const simport = createSimport(__filename);
+
+    const native = await import('./test/fixtures/default-frozen-function.js');
+    const result = await simport('./test/fixtures/default-frozen-function.js');
+    t.equal(typeof result, "function");
+
+    t.notEqual(result, native.default);
+    t.equal(result.default, native.default);
+    t.equal(result.bar, native.bar);
+
+    t.end();
+});
+
+test('simport: `default` export: mutable primitive', async (t) => {
+    const {__filename} = createCommons(url);
+    const simport = createSimport(__filename);
+
+    const native = await import('./test/fixtures/default-mutable-primitive.js');
+    const result = await simport('./test/fixtures/default-mutable-primitive.js');
+
+    t.equal(result, native);
+    t.equal(result.set, native.set);
+    t.equal(result.default, native.default);
+    t.equal(result.default, undefined);
+
+    result.set(123);
+    t.equal(result.default, native.default);
+    t.equal(result.default, 123);
+
+    t.end();
+});
