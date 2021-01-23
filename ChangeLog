@@ -1,3 +1,9 @@
+2021.01.23, v1.1.1
+
+fix:
+- (simport) namespaced imports
+
+
 2021.01.22, v1.1.0
 
 feature:
