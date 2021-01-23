@@ -36,8 +36,9 @@ module.exports.createSimport = (url) => {
         let imported;
         let error;
         
-        if (/^[a-z]/.test(name))
+        if (/^[@a-z]/.test(name)) {
             imported = await tryNoExt(resolved);
+        }
         
         if (!imported) {
             [error, imported] = await tryToCatch(tryJS, resolved);

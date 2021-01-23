@@ -106,3 +106,13 @@ test('simport: absolute', async (t) => {
     t.end();
 });
 
+test('simport: external', async (t) => {
+    const {__filename} = createCommons(url);
+    const simport = createSimport(__filename);
+    
+    const [error] = await tryToCatch(simport, '@cloudcmd/stub');
+    
+    t.notOk(error);
+    t.end();
+});
+
