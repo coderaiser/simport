@@ -10,7 +10,7 @@ With simport you can:
 - avoid extensions
 - avoid destructuring default
 - pass `simport` into functions like [tryCatch](https://github.com/coderaiser/try-to-catch)
-- use [absolutepaths paths in windows](https://github.com/nodejs/node/issues/31710#issuecomment-587434048)
+- use [absolute path in windows](https://github.com/nodejs/node/issues/31710#issuecomment-587434048)
 
 ## Install
 
