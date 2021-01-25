@@ -117,7 +117,17 @@ test('simport: external', async (t) => {
 
 test('simport: default frozen function', async (t) => {
     const {__filename, __dirname} = createCommons(url);
+    const simport = createSimport(__filename);
     const fixture = join(__dirname, 'fixture', 'default-frozen-function');
+    const [error] = await tryToCatch(simport, fixture);
+    
+    t.notOk(error);
+    t.end();
+});
+
+test('simport: default frozen object', async (t) => {
+    const {__filename, __dirname} = createCommons(url);
+    const fixture = join(__dirname, 'fixture', 'default-frozen-object');
     const simport = createSimport(__filename);
     
     const [error] = await tryToCatch(simport, fixture);

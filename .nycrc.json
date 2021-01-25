@@ -3,7 +3,8 @@
     "all": true,
     "exclude": [
         ".*",
-        "*.spec.*"
+        "*.spec.*",
+        "fixture"
     ],
     "branches": 100,
     "lines": 100,
