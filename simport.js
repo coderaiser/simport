@@ -6,10 +6,12 @@ const tryToCatch = require('try-to-catch');
 
 const {assign} = Object;
 
-const tryNoExt = async (a) => await import(a);
-const tryJS = async (a) => await import(`${a}.js`);
-const tryMJS = async (a) => await import(`${a}.mjs`);
-const tryCJS = async (a) => await import(`${a}.cjs`);
+const importWithExt = async (a, ext = '') => await import(`${a}${ext}`);
+const extensions = [
+    '.js',
+    '.cjs',
+    '.mjs',
+];
 
 module.exports.createSimport = (url) => {
     url = url.includes('file://') ? url : pathToFileURL(url);
@@ -37,17 +39,11 @@ module.exports.createSimport = (url) => {
         let error;
         
         if (/^[@a-z]/.test(name)) {
-            imported = await tryNoExt(resolved);
-        }
-        
-        if (!imported) {
-            [error, imported] = await tryToCatch(tryJS, resolved);
-            imported = imported || await tryToCatch(tryMJS, resolved)[0];
-            imported = imported || await tryToCatch(tryCJS, resolved)[0];
+            imported = await importWithExt(resolved);
         }
         
         if (!imported)
-            throw error;
+            imported = await importAbsolute(resolved);
         
         const {default: def = {}} = imported;
         
@@ -55,3 +51,19 @@ module.exports.createSimport = (url) => {
     };
 };
 
+async function importAbsolute(resolved) {
+    let error;
+    let imported;
+    
+    for (const ext of extensions) {
+        [error, imported] = await tryToCatch(importWithExt, resolved, ext);
+        
+        if (imported)
+            break;
+    }
+    
+    if (!imported)
+        throw error;
+    
+    return imported;
+}
