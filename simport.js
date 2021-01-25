@@ -5,6 +5,8 @@ const readjson = require('readjson');
 const tryToCatch = require('try-to-catch');
 
 const {assign} = Object;
+const isFn = (a) => typeof a === 'function';
+const maybeFrozen = (a) => !isFn(a) ? a : a.bind();
 
 const importWithExt = async (a, ext = '') => await import(`${a}${ext}`);
 const extensions = [
@@ -30,9 +32,8 @@ module.exports.createSimport = (url) => {
         if (/\.(js|mjs|cjs)$/.test(name)) {
             const processed = resolved.href || `file://${resolved}`;
             const imported = await import(processed);
-            const {default: def = {}} = imported;
             
-            return assign(def, imported);
+            return buildExports(imported);
         }
         
         let imported;
@@ -43,11 +44,12 @@ module.exports.createSimport = (url) => {
         }
         
         if (!imported)
-            imported = await importAbsolute(resolved);
+            [error, imported] = await importAbsolute(resolved);
         
-        const {default: def = {}} = imported;
+        if (error)
+            throw error;
         
-        return assign(def, imported);
+        return buildExports(imported);
     };
 };
 
@@ -62,8 +64,13 @@ async function importAbsolute(resolved) {
             break;
     }
     
-    if (!imported)
-        throw error;
-    
-    return imported;
+    return [error, imported];
 }
+
+function buildExports(imported) {
+    const {default: def = {}} = imported;
+    const exports = maybeFrozen(def);
+    
+    return assign(exports, imported);
+}
+

@@ -15,9 +15,8 @@ const simport = createSimport(url);
 
 test('simport: default', async (t) => {
     const data = await import('supertape');
-    const superData = await simport('supertape');
     
-    t.equal(data.default, superData);
+    t.equal(typeof data.default, 'function');
     t.end();
 });
 
@@ -111,6 +110,17 @@ test('simport: external', async (t) => {
     const simport = createSimport(__filename);
     
     const [error] = await tryToCatch(simport, '@cloudcmd/stub');
+    
+    t.notOk(error);
+    t.end();
+});
+
+test('simport: default frozen function', async (t) => {
+    const {__filename, __dirname} = createCommons(url);
+    const fixture = join(__dirname, 'fixture', 'default-frozen-function');
+    const simport = createSimport(__filename);
+    
+    const [error] = await tryToCatch(simport, fixture);
     
     t.notOk(error);
     t.end();
