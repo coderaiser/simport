@@ -8,7 +8,10 @@ const {assign} = Object;
 const isFn = (a) => typeof a === 'function';
 const isObject = (a) => typeof a === 'object';
 
-const maybeFrozenFunction = (a) => !isFn(a) ? a : a.bind();
+const maybeFrozenFunction = (a) => !isFn(a) ? a : function(...args) {
+    return a.apply(this, args);
+};
+
 const maybeFrozenObject = (a) => !isObject(a) ? a : assign({}, a);
 
 const importWithExt = async (a, ext = '') => await import(`${a}${ext}`);

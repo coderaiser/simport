@@ -136,3 +136,16 @@ test('simport: default frozen object', async (t) => {
     t.end();
 });
 
+test('simport: context', async (t) => {
+    const {__filename, __dirname} = createCommons(url);
+    const simport = createSimport(__filename);
+    const fixture = join(__dirname, 'fixture', 'context');
+    const [, stringify] = await tryToCatch(simport, fixture);
+    
+    const result = stringify.call({
+        Compiler: 'hello',
+    });
+    
+    t.equal(result, 'hello');
+    t.end();
+});
