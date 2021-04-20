@@ -50,7 +50,7 @@
     "coveralls": "^3.0.2",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^6.11.0",
+    "eslint-plugin-putout": "^7.4.0",
     "madrun": "^8.2.0",
     "nodemon": "^2.0.2",
     "putout": "^16.7.0",
