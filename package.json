@@ -41,7 +41,8 @@
   },
   "dependencies": {
     "readjson": "^2.2.0",
-    "try-to-catch": "^3.0.0"
+    "try-to-catch": "^3.0.0",
+    "import-meta-resolve": "^1.1.1"
   },
   "license": "MIT",
   "devDependencies": {
@@ -53,7 +54,7 @@
     "eslint-plugin-putout": "^7.4.0",
     "madrun": "^8.2.0",
     "nodemon": "^2.0.2",
-    "putout": "^16.7.0",
+    "putout": "^18.1.1",
     "supertape": "^5.1.0"
   },
   "engines": {
