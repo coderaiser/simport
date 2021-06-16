@@ -22,7 +22,8 @@ const extensions = [
 ];
 
 module.exports.createSimport = (url) => {
-    url = url.includes('file://') ? url : pathToFileURL(url);
+    if (!url.includes('file://'))
+        url = pathToFileURL(url);
     
     return async (name) => {
         let resolved = name;
