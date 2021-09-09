@@ -1,6 +1,7 @@
 'use strict';
 
-const {pathToFileURL} = require('url');
+const {dirname} = require('path');
+const {pathToFileURL, fileURLToPath} = require('url');
 const readjson = require('readjson');
 const tryToCatch = require('try-to-catch');
 
@@ -26,12 +27,13 @@ module.exports.createSimport = (url) => {
         url = pathToFileURL(url);
     
     return async (name) => {
-        let resolved = name;
-        const isRelative = /^\./.test(name);
-        
-        if (isRelative) {
-            resolved = new URL(name, url);
-        }
+        // need import.meta.resolve, which is experimental right now
+        // https://nodejs.org/api/esm.html#esm_import_meta_resolve_specifier_parent
+        const resolved = require.resolve(name, {
+            paths: [
+                dirname(fileURLToPath(url)),
+            ],
+        });
         
         if (/\.json$/.test(resolved))
             return await readjson(resolved);
