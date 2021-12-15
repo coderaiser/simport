@@ -9,7 +9,7 @@ With simport you can:
 - load json
 - avoid extensions
 - avoid destructuring default
-- pass `simport` into functions like [tryCatch](https://github.com/coderaiser/try-to-catch)
+- pass `simport` into functions like [tryToCatch](https://github.com/coderaiser/try-to-catch)
 - use [absolute path in windows](https://github.com/nodejs/node/issues/31710#issuecomment-587434048)
 
 ## Install
