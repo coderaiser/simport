@@ -1,4 +1,4 @@
-# Simport [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+# Simport [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 Use [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Imports) just like plain old [require](https://nodejs.org/api/esm.html#esm_require).
 
@@ -63,19 +63,15 @@ const {
 // now you have plain old CommonJS variables
 ```
 
-
 ## License
 
 MIT
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/simport.svg?style=flat
-[BuildStatusIMGURL]:        https://travis-ci.com/coderaiser/simport.svg?branch=master
-[DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/simport.svg?style=flat
-[LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[NPMURL]:                   https://npmjs.org/package/simport "npm"
-[BuildStatusURL]:           https://travis-ci.com/coderaiser/simport  "Build Status"
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/simport "Dependency Status"
-[LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
-
-[CoverageURL]:              https://coveralls.io/github/coderaiser/simport?branch=master
-[CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/simport/badge.svg?branch=master&service=github
+[NPMIMGURL]: https://img.shields.io/npm/v/simport.svg?style=flat
+[BuildStatusIMGURL]: https://travis-ci.com/coderaiser/simport.svg?branch=master
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[NPMURL]: https://npmjs.org/package/simport "npm"
+[BuildStatusURL]: https://travis-ci.com/coderaiser/simport "Build Status"
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
+[CoverageURL]: https://coveralls.io/github/coderaiser/simport?branch=master
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/simport/badge.svg?branch=master&service=github
