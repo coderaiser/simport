@@ -54,7 +54,7 @@
     "eslint-plugin-putout": "^9.2.1",
     "madrun": "^8.2.0",
     "nodemon": "^2.0.2",
-    "putout": "^19.0.0",
+    "putout": "^22.7.0",
     "supertape": "^6.10.0"
   },
   "engines": {
