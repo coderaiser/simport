@@ -55,7 +55,7 @@
     "madrun": "^8.2.0",
     "nodemon": "^2.0.2",
     "putout": "^19.0.0",
-    "supertape": "^5.1.0"
+    "supertape": "^6.10.0"
   },
   "engines": {
     "node": ">=12.2"
