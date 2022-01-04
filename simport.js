@@ -83,3 +83,22 @@ function buildExports(imported) {
     return assign(exports, imported);
 }
 
+module.exports.createCommons = () => {
+    return {
+        require,
+        __filename,
+        __dirname
+    }
+}
+
+module.exports.createDirname = () => {
+    return __dirname;
+}
+
+module.exports.createFilename = () => {
+    return __filename;
+}
+
+module.exports.createRequire = () => {
+    return require;
+}

@@ -6,6 +6,7 @@ import {createSimport} from './simport.js';
 
 export {
     createSimport,
+    createRequire,
 };
 
 export const createCommons = (url) => {
@@ -20,3 +21,13 @@ export const createCommons = (url) => {
     };
 };
 
+export const createDirname = (url) => {
+    const __filename = fileURLToPath(url);
+    const __dirname = dirname(__filename);
+    return __dirname;
+}
+
+export const createFilename = (url) => {
+    const __filename = fileURLToPath(url);
+    return __filename;
+}
