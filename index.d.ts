@@ -65,7 +65,7 @@ Access to __filename
 @example
 ```
 import {createFilename} from 'simport';
-const __filename = createCommons(import.meta.url);
+const __filename = createFilename(import.meta.url);
 ```
 */
 export function createFilename(url?: string): string;

@@ -63,6 +63,18 @@ const {
 // now you have plain old CommonJS variables
 ```
 
+```js
+// CommonJS variables can be created individually too
+import {createFilename} from 'simport';
+const __filename = createFilename(import.meta.url);
+
+import {createDirname} from 'simport';
+const __dirname = createDirname(import.meta.url);
+
+import {createRequire} from 'simport';
+const require = createRequire(import.meta.url);
+```
+
 ## License
 
 MIT
