@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "nodejs/convert-dirname-to-url": "off"
+    }
+}

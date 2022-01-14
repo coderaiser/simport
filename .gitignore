@@ -5,3 +5,4 @@ coverage
 *.swp
 .nyc_output
 yarn-error.log
+.idea

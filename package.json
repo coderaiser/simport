@@ -1,6 +1,7 @@
 {
   "name": "simport",
   "version": "1.2.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "import like require but async",
   "homepage": "http://github.com/coderaiser/simport",
